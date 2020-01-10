@@ -64,12 +64,19 @@ def main(nameOfOutFile, nameOfInFile):
                         if tmpData != "Пр":
                             if dataTimeOut[i + int(tmpData) - 1] is None:
                                 sheetOut.cell(row=i + int(tmpData), column=8).value = dataTimeIn[j]
+                                break
                             else:
                                 if (str(dataTimeIn[j])[:10] == str(dataTimeOut[i + int(tmpData) - 1])[:10]) and (
                                         str(dataTimeIn[j])[11:] < str(dataTimeOut[i + int(tmpData) - 1])[11:]):
                                     sheetOut.cell(row=i + int(tmpData), column=8).value = dataTimeIn[j]
+                                    break
                         else:
-                            sheetOut.cell(row=i + int(str(dataTimeInExit[j])[0:2]), column=8).value = dataTimeIn[j]
+                            if dataTimeOut[i+int(str(dataTimeInExit[j])[0:2]) - 1] is None:
+                                sheetOut.cell(row=i + int(str(dataTimeInExit[j])[0:2]), column=8).value = dataTimeIn[j]
+                    else:
+                        break
+                else:
+                    break
             i += oneSecondName + 1
     wbOut.save(filename=nameOfOutFile)
     print("Время входа поменялось!")
@@ -84,13 +91,20 @@ def main(nameOfOutFile, nameOfInFile):
                         if tmpData != "Пр":
                             if dataTimeOutExit[i + int(tmpData) - 1] is None:
                                 sheetOut.cell(row=i + int(tmpData), column=9).value = dataTimeInExit[j]
+                                break
                             else:
                                 if (str(dataTimeInExit[j])[:10] == str(dataTimeOutExit[i + int(tmpData) - 1])[
                                                                    :10]) and (
                                         str(dataTimeInExit[j])[11:] > str(dataTimeOutExit[i + int(tmpData) - 1])[11:]):
                                     sheetOut.cell(row=i + int(tmpData), column=9).value = dataTimeInExit[j]
+                                    break
                         else:
-                            sheetOut.cell(row=i + int(str(dataTimeIn[j][0:2])), column=9).value = dataTimeInExit[j]
+                            if (dataTimeOutExit[i + int(str(dataTimeIn[j][0:2])) - 1]) is None:
+                                sheetOut.cell(row=i + int(str(dataTimeIn[j][0:2])), column=9).value = dataTimeInExit[j]
+                    else:
+                        break
+                else:
+                    break
             i += oneSecondName + 1
     print("Время выхода поменялось!")
     wbOut.save(filename=nameOfOutFile)

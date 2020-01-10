@@ -161,7 +161,7 @@ class windowWhileWorkIfChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         print("AddSumOfTime")
         AddSumOfTime.AddSumOfTime(self.path, self.path1)
         self.progressBar.setValue(80)
-        print("AddTimeOfWork")
+        print("AddTimeOfWorkUnchecked")
         AddTimeOfWorkUnchecked.AddTimeOfWork(self.path, self.path1)
         self.progressBar.setValue(100)
 
