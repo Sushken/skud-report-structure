@@ -54,13 +54,18 @@ def AddTimeOfWork(nameOfOutFile, nameOfInFile, value):
     i = 2
     while i <= sheetOut.max_row:
         if sheetOut.cell(row=i, column=9).value is not None:
-            if len(str(value)) == 2:
-                if sheetOut.cell(row=i, column=9).value.startswith(str(value)):
-                    sheetOut.cell(row=i, column=9).value = ""
-                    sheetOut.cell(row=i, column=10).value = ""
+            if sheetOut.cell(row=i, column=9).value != "Прохода нет":
+                if len(str(value)) == 2:
+                    if sheetOut.cell(row=i, column=9).value.startswith(str(value)):
+                        sheetOut.cell(row=i, column=9).value = ""
+                        sheetOut.cell(row=i, column=10).value = ""
+                else:
+                    if sheetOut.cell(row=i, column=9).value.startswith("0" + str(value)):
+                        sheetOut.cell(row=i, column=9).value = ""
+                        sheetOut.cell(row=i, column=10).value = ""
             else:
-                if sheetOut.cell(row=i, column=9).value.startswith("0" + str(value)):
-                    sheetOut.cell(row=i, column=9).value = ""
-                    sheetOut.cell(row=i, column=10).value = ""
+                sheetOut.cell(row=i, column=9).value = ""
+                sheetOut.cell(row=i, column=10).value = ""
+
         i += 1
     wbOut.save(filename=nameOfOutFile)
