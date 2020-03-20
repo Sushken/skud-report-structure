@@ -15,7 +15,6 @@ class Ui_MainWindow(object):
     def setupChoseWindow(self, choseWindow):
         choseWindow.setObjectName("choseWindow")
         choseWindow.resize(400, 300)
-        # choseWindow.setStyleSheet("background-color: rgb(255, 255, 255)")
         self.pushButton_3 = QtWidgets.QPushButton(choseWindow)
         self.pushButton_3.setGeometry(QtCore.QRect(20, 60, 361, 41))
         font = QtGui.QFont()
@@ -45,7 +44,6 @@ class Ui_MainWindow(object):
         self.lineEdit.setGeometry(QtCore.QRect(40, 90, 201, 31))
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit.setReadOnly(True)
-
         self.check_box = QtWidgets.QCheckBox(self.centralwidget)
         self.check_box.setGeometry(QtCore.QRect(610, 180, 16, 16))
         self.check_box.setObjectName("check_box")
@@ -57,10 +55,6 @@ class Ui_MainWindow(object):
         self.choseNumber.setRange(1, 31)
         self.choseNumber.setObjectName("choseNumber")
         self.choseNumber.hide()
-        # self.testbutton = QtWidgets.QPushButton(self.centralwidget)
-        # self.testbutton.setGeometry(QtCore.QRect(610, 300, 41, 41))
-        # self.testbutton.setObjectName("testbutton")
-
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(500, 60, 161, 31))
         self.label.setStyleSheet("font: 14pt \"Times New Roman\";")
@@ -91,7 +85,6 @@ class Ui_MainWindow(object):
         self.toolButton.setStyleSheet("background-color: rgb(50, 83, 122);")
         self.toolButton.setObjectName("toolButton")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        # self.label_6.setGeometry(QtCore.QRect(10, 20, 751, 311))
         self.label_6.setGeometry(QtCore.QRect(10, 280, 321, 51))
         self.label_6.setObjectName("label_6")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -132,6 +125,11 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QtWidgets.QPushButton(Dialog1)
         self.pushButton_2.setGeometry(QtCore.QRect(120, 70, 141, 41))
         self.pushButton_2.setObjectName("pushButton_2")
+
+        self.pushButton_10 = QtWidgets.QPushButton(Dialog1)
+        self.pushButton_10.setGeometry(QtCore.QRect(120, 70, 141, 41))
+        self.pushButton_10.setObjectName("pushButton_10")
+
         self.label_5 = QtWidgets.QLabel(Dialog1)
         self.label_5.setGeometry(QtCore.QRect(30, 30, 321, 41))
         font = QtGui.QFont()
@@ -162,8 +160,6 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "START"))
         self.toolButton.setText(_translate("MainWindow", "..."))
         self.label_with_check_box.setText(_translate("MainWindow", "Удалить время выхода"))
-        # self.testbutton.setText(_translate("MainWindow", "TEST"))
-
 
     def retranslateDialogUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -175,4 +171,5 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog1.setWindowTitle(_translate("Dialog1", "Ожидайте"))
         self.pushButton_2.setText(_translate("Dialog1", "OK"))
+        self.pushButton_10.setText(_translate("Dialog1", "ЗАКРЫТЬ"))
         self.label_5.setText(_translate("Dialog1", "Нажмите ОК и дождитесь окончания программы!"))

@@ -1,10 +1,15 @@
-from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtWidgets import QFileDialog
-
-import MyDesign  # импорт нашего сгенерированного файла
 import sys
-import AddFullNameOnPostions, ResolveSeconds, Main, AddSumOfTime, AddTimeOfWork, ResolveAerodom, AddTimeOfWorkUnchecked
 import time
+import AddFullNameOnPostions
+import AddSumOfTime
+import AddTimeOfWork
+import AddTimeOfWorkUnchecked
+import Main
+import MyDesign  # импорт нашего сгенерированного файла
+import ResolveAerodom
+import ResolveSeconds
+from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtWidgets import QFileDialog
 
 
 class choseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
@@ -31,8 +36,11 @@ class windowWhileCreate(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
     def __init__(self, path):
         super().__init__()
+
         self.path = path
+        self.count = 0
         self.setupWindowWhileWork(self)
+        self.pushButton_10.hide()
         self.pushButton_2.clicked.connect(self.getResolveAerodom)
 
     def getResolveAerodom(self):
@@ -41,8 +49,23 @@ class windowWhileCreate(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.progressBar.setGeometry(QtCore.QRect(130, 70, 141, 41))
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
-        ResolveAerodom.Resolve(self.path)
-        self.progressBar.setProperty("value", 100)
+        self.goToWork()
+
+    def goToWork(self):
+        self.thread_of_ResolveAerodom = ResolveAerodom.Resolve(self.path, self.count)
+        self.thread_of_ResolveAerodom.percentageChanged.connect(self.progressBar.setValue)
+        self.thread_of_ResolveAerodom.indicator_of_end_work.connect(self.close)
+        self.thread_of_ResolveAerodom.start()
+
+    def close(self):
+        time.sleep(1.5)
+        self.progressBar.hide()
+        self.label_5.setText("Продолжительность работы: " + str(self.thread_of_ResolveAerodom.duration))
+        self.pushButton_10.show()
+        self.pushButton_10.clicked.connect(self.hide_window)
+
+    def hide_window(self):
+        self.hide()
 
 
 class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
@@ -54,11 +77,6 @@ class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.toolButton.clicked.connect(self.open_dialog_box)
         self.toolButton_2.clicked.connect(self.open_dialog_box_1)
         self.pushButton.clicked.connect(self.Showing)
-        # self.testbutton.clicked.connect(self.print_number)
-
-    # def print_number(self):
-    #     if self.choseNumber.isVisible():
-    #         print(self.choseNumber.value())
 
     def test(self):
         if self.choseNumber.isVisible():
@@ -111,11 +129,13 @@ class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
     def Showing(self):
         if self.choseNumber.isVisible():
+            self.close()
             self.waitWindow = windowWhileWork(self.path, self.path1, self.choseNumber.value())
             self.waitWindow.show()
         else:
             print("ALL IS WORK!!! YEAH, VICTORY!!!!!!!")
-            self.waitWindow = windowWhileWorkIfChecked(self.path, self.path1)
+            self.close()
+            self.waitWindow = windowWhileWorkIfNotChecked(self.path, self.path1)
             self.waitWindow.show()
 
 
@@ -126,15 +146,17 @@ class closeWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.pushButton_1.clicked.connect(self.closeProg)
 
     def closeProg(self):
-        sys.exit(0)
+        self.hide()
 
 
-class windowWhileWorkIfChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
     def __init__(self, path, path1):
         super().__init__()
         self.path = path
         self.path1 = path1
+        self.count = 0
         self.setupWindowWhileWork(self)
+        self.pushButton_10.hide()
         self.pushButton_2.clicked.connect(self.getStart)
 
     def getStart(self):
@@ -145,25 +167,73 @@ class windowWhileWorkIfChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.progressBar.setObjectName("progressBar")
         self.goToWork()
         time.sleep(2)
-        self.w2 = closeWindow()
-        self.w2.show()
 
     def goToWork(self):
         print("AddFullNameOnPositions")
-        AddFullNameOnPostions.AddName(self.path, self.path1)
-        self.progressBar.setValue(20)
-        print("ResolveSeconds")
-        ResolveSeconds.ResolveSeconds(self.path, self.path1)
-        self.progressBar.setValue(40)
-        print("Main")
-        Main.main(self.path, self.path1)
-        self.progressBar.setValue(60)
-        print("AddSumOfTime")
-        AddSumOfTime.AddSumOfTime(self.path, self.path1)
-        self.progressBar.setValue(80)
-        print("AddTimeOfWorkUnchecked")
-        AddTimeOfWorkUnchecked.AddTimeOfWork(self.path, self.path1)
-        self.progressBar.setValue(100)
+        self.thread_addFullNameOnPositions = AddFullNameOnPostions.AddName(self.path, self.path1, self.count)
+        self.thread_addFullNameOnPositions.percentageChanged.connect(self.progressBar.setValue)
+        self.thread_addFullNameOnPositions.indicator_of_end_work.connect(self.closeEvent)
+        self.thread_addFullNameOnPositions.start()
+
+    def closeEvent(self, indicator):
+        self.count = self.thread_addFullNameOnPositions.count
+        print(self.count, "count after first thread")
+        if indicator is True:
+            if self.thread_addFullNameOnPositions.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 2 thread")
+            self.thread_ResolveSeconds = ResolveSeconds.ResolveSeconds(self.path, self.path1, self.count)
+            self.thread_ResolveSeconds.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_ResolveSeconds.indicator_of_end_work.connect(self.go_to_main_thread)
+            self.thread_ResolveSeconds.start()
+
+    def go_to_main_thread(self, indicator):
+        self.count = self.thread_ResolveSeconds.count
+        print(self.count, "count after second thread")
+        if indicator is True:
+            if self.thread_ResolveSeconds.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 3 thread")
+            self.thread_main = Main.Main(self.path, self.path1, self.count)
+            self.thread_main.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_main.indicator_of_end_work.connect(self.go_to_addSumOfTime_thread)
+            self.thread_main.start()
+
+    def go_to_addSumOfTime_thread(self, indicator):
+        self.count = self.thread_main.count
+        print(self.count, "count after third thread")
+        if indicator is True:
+            if self.thread_main.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 4 thread")
+            self.thread_addSumOfTime = AddSumOfTime.AddSumOfTime(self.path, self.path1, self.count)
+            self.thread_addSumOfTime.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_addSumOfTime.indicator_of_end_work.connect(self.go_to_addTimeOfWorkUnchecked_thread)
+            self.thread_addSumOfTime.start()
+
+    def go_to_addTimeOfWorkUnchecked_thread(self, indicator):
+        self.count = self.thread_addSumOfTime.count
+        print(self.count, "count after fourth thread")
+        if indicator is True:
+            if self.thread_addSumOfTime.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 5 thread")
+            self.thread_addTimeOfWorkUnchecked = AddTimeOfWorkUnchecked.AddTimeOfWork(self.path, self.path1, self.count)
+            self.thread_addTimeOfWorkUnchecked.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_addTimeOfWorkUnchecked.indicator_of_end_work.connect(self.closeThisShit)
+            self.thread_addTimeOfWorkUnchecked.start()
+
+    def closeThisShit(self):
+        self.w2 = closeWindow()
+        self.w2.show()
 
 
 class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
@@ -172,7 +242,9 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.value = value
         self.path = path
         self.path1 = path1
+        self.count = 0
         self.setupWindowWhileWork(self)
+        self.pushButton_10.hide()
         self.pushButton_2.clicked.connect(self.getStart)
 
     def getStart(self):
@@ -182,27 +254,75 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
         self.goToWork()
-        time.sleep(2)
-        self.w2 = closeWindow()
-        self.w2.show()
 
     def goToWork(self):
         print("AddFullNameOnPositions")
-        AddFullNameOnPostions.AddName(self.path, self.path1)
-        self.progressBar.setValue(20)
-        print("ResolveSeconds")
-        ResolveSeconds.ResolveSeconds(self.path, self.path1)
-        self.progressBar.setValue(40)
-        print("Main")
-        Main.main(self.path, self.path1)
-        self.progressBar.setValue(60)
-        print("AddSumOfTime")
-        AddSumOfTime.AddSumOfTime(self.path, self.path1)
-        self.progressBar.setValue(80)
-        print("AddTimeOfWork")
-        print(self.value)
-        AddTimeOfWork.AddTimeOfWork(self.path, self.path1, self.value)
-        self.progressBar.setValue(100)
+        self.thread_addFullNameOnPositions = AddFullNameOnPostions.AddName(self.path, self.path1, self.count)
+        self.thread_addFullNameOnPositions.percentageChanged.connect(self.progressBar.setValue)
+        self.thread_addFullNameOnPositions.indicator_of_end_work.connect(self.closeEvent)
+        self.thread_addFullNameOnPositions.start()
+
+    def closeEvent(self, indicator):
+        self.count = self.thread_addFullNameOnPositions.count
+        print(self.count, "count after first thread")
+        if indicator is True:
+            if self.thread_addFullNameOnPositions.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 2 thread")
+            self.thread_ResolveSeconds = ResolveSeconds.ResolveSeconds(self.path, self.path1, self.count)
+            self.thread_ResolveSeconds.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_ResolveSeconds.indicator_of_end_work.connect(self.go_to_main_thread)
+            self.thread_ResolveSeconds.start()
+
+    def go_to_main_thread(self, indicator):
+        self.count = self.thread_ResolveSeconds.count
+        print(self.count, "count after second thread")
+        if indicator is True:
+            if self.thread_ResolveSeconds.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 3 thread")
+            self.thread_main = Main.Main(self.path, self.path1, self.count)
+            self.thread_main.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_main.indicator_of_end_work.connect(self.go_to_addSumOfTime_thread)
+            self.thread_main.start()
+
+    def go_to_addSumOfTime_thread(self, indicator):
+        self.count = self.thread_main.count
+        print(self.count, "count after third thread")
+        if indicator is True:
+            if self.thread_main.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 4 thread")
+            self.thread_addSumOfTime = AddSumOfTime.AddSumOfTime(self.path, self.path1, self.count)
+            self.thread_addSumOfTime.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_addSumOfTime.indicator_of_end_work.connect(self.go_to_addTimeOfWorkUnchecked_thread)
+            self.thread_addSumOfTime.start()
+
+    def go_to_addTimeOfWorkUnchecked_thread(self, indicator):
+        self.count = self.thread_addSumOfTime.count
+        print(self.count, "count after fourth thread")
+        if indicator is True:
+            if self.thread_addSumOfTime.isFinished():
+                print("fork is down!")
+            else:
+                print("fork is not down!")
+            print("start the 5 thread")
+            self.thread_addTimeOfWork = AddTimeOfWork.AddTimeOfWork(self.path, self.path1, self.count, self.value)
+            self.thread_addTimeOfWork.percentageChanged.connect(self.progressBar.setValue)
+            self.thread_addTimeOfWork.indicator_of_end_work.connect(self.closeThisShit)
+            self.thread_addTimeOfWork.start()
+
+    def closeThisShit(self):
+        time.sleep(1)
+        self.hide()
+        self.w2 = closeWindow()
+        self.w2.show()
 
 
 def main():
