@@ -12,23 +12,98 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
 
+    def __init__(self):
+        super().__init__()
+        self.styleForPushButtons = '''
+               QPushButton{
+                   border-style: outset;
+                   border-width: 1.5px;
+                   border-color: black;
+               }
+               QPushButton::hover {
+                   background-color: lightgrey;
+               }
+        '''
+        self.styleForWindows = '''
+                background-color: white;                   
+        '''
+        self.styleForLineEdit = '''
+                border: 1px solid black;
+            '''
+
+    def setupFileSharingWindow(self, sharingWindow):
+        sharingWindow.setObjectName("sharingWindow")
+        sharingWindow.resize(400, 400)
+        sharingWindow.setStyleSheet(self.styleForWindows)
+
+        # First point
+        self.labelForFirst = QtWidgets.QLabel(sharingWindow)
+        self.labelForFirst.setGeometry(QtCore.QRect(30, 20, 161, 31))
+        self.labelForFirst.setStyleSheet("font: 14pt \"Times New Roman\";")
+        self.labelForFirst.setObjectName("labelForFirst")
+        self.lineForFirst = QtWidgets.QLineEdit(sharingWindow)
+        self.lineForFirst.setGeometry(QtCore.QRect(50, 50, 240, 31))
+        self.lineForFirst.setObjectName("lineForFirst")
+        self.lineForFirst.setStyleSheet(self.styleForLineEdit)
+        self.lineForFirst.setReadOnly(True)
+        self.toolButtonForFirst = QtWidgets.QToolButton(sharingWindow)
+        self.toolButtonForFirst.setGeometry(QtCore.QRect(300, 50, 41, 31))
+        self.toolButtonForFirst.setStyleSheet("background-color: rgb(50, 83, 122);")
+        self.toolButtonForFirst.setObjectName("toolButtonForFirst")
+
+        # Second point
+        self.labelForSecond = QtWidgets.QLabel(sharingWindow)
+        self.labelForSecond.setGeometry(QtCore.QRect(30, 100, 200, 31))
+        self.labelForSecond.setStyleSheet("font: 14pt \"Times New Roman\";")
+        self.labelForSecond.setObjectName("labelForSecond")
+        self.comboForSecond = QtWidgets.QComboBox(sharingWindow)
+        self.comboForSecond.setGeometry(QtCore.QRect(50, 130, 201, 31))
+        self.comboForSecond.addItems(["ГК Новотранс", "Новотранс Актив", "РК Новотранс", "ХК Новотранс", "Арго"])
+        self.comboForSecond.setStyleSheet("border: 1px solid black;")
+
+        # Third point
+        self.labelForThird = QtWidgets.QLabel(sharingWindow)
+        self.labelForThird.setGeometry(QtCore.QRect(30, 180, 300, 31))
+        self.labelForThird.setStyleSheet("font: 14pt \"Times New Roman\";")
+        self.labelForThird.setObjectName("labelForThird")
+        self.lineForThird = QtWidgets.QLineEdit(sharingWindow)
+        self.lineForThird.setGeometry(QtCore.QRect(50, 210, 300, 31))
+        self.lineForThird.setObjectName("lineForThird")
+        self.lineForThird.setStyleSheet(self.styleForLineEdit)
+        self.lineForThird.setReadOnly(False)
+
+        # Start point
+        self.pushStartButton = QtWidgets.QPushButton(sharingWindow)
+        self.pushStartButton.setGeometry(QtCore.QRect(160, 260, 80, 50))
+        self.pushStartButton.setStyleSheet(self.styleForPushButtons)
+
+        self.retranslateSharingWindow(sharingWindow)
+        QtCore.QMetaObject.connectSlotsByName(sharingWindow)
+
     def setupChoseWindow(self, choseWindow):
         choseWindow.setObjectName("choseWindow")
-        choseWindow.resize(400, 300)
-        self.pushButton_3 = QtWidgets.QPushButton(choseWindow)
-        self.pushButton_3.setGeometry(QtCore.QRect(20, 60, 361, 41))
+        choseWindow.resize(400, 380)
+        choseWindow.setStyleSheet(self.styleForWindows)
+
         font = QtGui.QFont()
         font.setPointSize(10)
+        self.pushButton_3 = QtWidgets.QPushButton(choseWindow)
+        self.pushButton_3.setGeometry(QtCore.QRect(20, 60, 361, 41))
         self.pushButton_3.setFont(font)
+        self.pushButton_3.setStyleSheet(self.styleForPushButtons)
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(choseWindow)
         self.pushButton_4.setGeometry(QtCore.QRect(20, 130, 361, 41))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.pushButton_4.setFont(font)
         self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_4.setStyleSheet(self.styleForPushButtons)
+        self.pushButton_5 = QtWidgets.QPushButton(choseWindow)
+        self.pushButton_5.setGeometry(QtCore.QRect(20, 200, 361, 41))
+        self.pushButton_5.setFont(font)
+        self.pushButton_5.setStyleSheet(self.styleForPushButtons)
+        self.pushButton_5.setObjectName("pushButton_5")
         self.label_7 = QtWidgets.QLabel(choseWindow)
-        self.label_7.setGeometry(QtCore.QRect(20, 200, 361, 81))
+        self.label_7.setGeometry(QtCore.QRect(20, 270, 361, 81))
         self.label_7.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignCenter)
         self.label_7.setObjectName("label_7")
 
@@ -38,11 +113,13 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 381)
+        MainWindow.setStyleSheet(self.styleForWindows)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(40, 90, 201, 31))
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setStyleSheet(self.styleForLineEdit)
         self.lineEdit.setReadOnly(True)
         self.check_box = QtWidgets.QCheckBox(self.centralwidget)
         self.check_box.setGeometry(QtCore.QRect(610, 180, 16, 16))
@@ -60,11 +137,12 @@ class Ui_MainWindow(object):
         self.label.setStyleSheet("font: 14pt \"Times New Roman\";")
         self.label.setObjectName("label")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(480, 90, 201, 31))
+        self.lineEdit_2.setGeometry(QtCore.QRect(480, 90, 201, 30))
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_2.setStyleSheet(self.styleForLineEdit)
         self.lineEdit_2.setReadOnly(True)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(40, 60, 201, 31))
+        self.label_2.setGeometry(QtCore.QRect(40, 60, 201, 30))
         self.label_2.setStyleSheet("font: 14pt \"Times New Roman\";")
         self.label_2.setObjectName("label_2")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
@@ -120,14 +198,17 @@ class Ui_MainWindow(object):
     def setupWindowWhileWork(self, Dialog1):
         Dialog1.setObjectName("Dialog1")
         Dialog1.resize(376, 154)
+        Dialog1.setStyleSheet(self.styleForWindows)
         self.progressBar = QtWidgets.QProgressBar(Dialog1)
         self.progressBar.hide()
         self.pushButton_2 = QtWidgets.QPushButton(Dialog1)
         self.pushButton_2.setGeometry(QtCore.QRect(120, 70, 141, 41))
+        self.pushButton_2.setStyleSheet(self.styleForPushButtons)
         self.pushButton_2.setObjectName("pushButton_2")
 
         self.pushButton_10 = QtWidgets.QPushButton(Dialog1)
         self.pushButton_10.setGeometry(QtCore.QRect(120, 70, 141, 41))
+        self.pushButton_10.setStyleSheet(self.styleForPushButtons)
         self.pushButton_10.setObjectName("pushButton_10")
 
         self.label_5 = QtWidgets.QLabel(Dialog1)
@@ -142,11 +223,21 @@ class Ui_MainWindow(object):
         self.retranslateWindowWhileWorkUi(Dialog1)
         QtCore.QMetaObject.connectSlotsByName(Dialog1)
 
+    def retranslateSharingWindow(self, sharingWindow):
+        _translate = QtCore.QCoreApplication.translate
+        sharingWindow.setWindowTitle(_translate("sharingWindow", "Раскладывание по папкам"))
+        self.labelForFirst.setText(_translate("sharingWindow", "1. Выберите файл"))
+        self.toolButtonForFirst.setText(_translate("sharingWindow", "..."))
+        self.labelForSecond.setText(_translate("sharingWindow", "2. Выберите компанию"))
+        self.labelForThird.setText(_translate("sharingWindow", "3. Задайте имя создаваемых файлов"))
+        self.pushStartButton.setText(_translate("sharingWindow", "START"))
+
     def retranslateChoseWindow(self, choseWindow):
         _translate = QtCore.QCoreApplication.translate
         choseWindow.setWindowTitle(_translate("choseWindow", "Выберите действие"))
         self.pushButton_3.setText(_translate("choseWindow", "Создание нового файла с БЦ Аэродом"))
         self.pushButton_4.setText(_translate("choseWindow", "Выполнить совмещение двух файлов"))
+        self.pushButton_5.setText(_translate("choseWindow", "Разложить файл по папкам на шаре"))
         self.label_7.setPixmap(QtGui.QPixmap("img.png"))
 
     def retranslateUi(self, MainWindow):

@@ -8,6 +8,7 @@ import Main
 import MyDesign  # импорт нашего сгенерированного файла
 import ResolveAerodom
 import ResolveSeconds
+import SharingFIles
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QFileDialog
 
@@ -19,17 +20,71 @@ class choseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.setupChoseWindow(self)
         self.pushButton_3.clicked.connect(self.createAerodom)
         self.pushButton_4.clicked.connect(self.mainProg)
+        self.pushButton_5.clicked.connect(self.fileDelivery)
 
     def createAerodom(self):
         filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
         self.path = filename[0]
         print(self.path)
-        self.WWC = windowWhileCreate(self.path)
-        self.WWC.show()
+        if self.path:
+            self.WWC = windowWhileCreate(self.path)
+            self.WWC.show()
 
     def mainProg(self):
         self.mainWindow = mywindow()
         self.mainWindow.show()
+
+    def fileDelivery(self):
+        self.share = fileSharing()
+        self.share.show()
+
+
+class fileSharing(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupFileSharingWindow(self)
+        self.toolButtonForFirst.clicked.connect(self.openDialogBox)
+        self.pushStartButton.clicked.connect(self.goSharing)
+
+    def openDialogBox(self):
+        filename = QFileDialog.getOpenFileName(self, "Выберите файо", "", "Excel Files *.xlsx")
+        self.path = filename[0]
+        if self.path != '':
+            count = 0
+            for i in range(len(self.path)):
+                if self.path[i] == '.' and self.path[i + 1] == 'x':
+                    j = i
+                    countOfName = 0
+                    while self.path[j] != '/':
+                        j -= 1
+                        countOfName += 1
+                    self.pathOfName = self.path[count - countOfName + 1:]
+                    i = len(self.path)
+                else:
+                    count += 1
+            self.lineForFirst.setText(self.pathOfName)
+            self.lineForFirst.setStyleSheet("font: 12pt \"Times New Roman\";")
+            self.lineForFirst.setReadOnly(True)
+            print(self.path)
+            return self.path
+
+    def goSharing(self):
+        treadSharing = SharingFIles.WorkWithFile(self.path, self.comboForSecond.currentText(), self.lineForThird.text())
+        treadSharing.indicator_of_end_work.connect(self.closeOne)
+        treadSharing.run()
+        # time.sleep(1)
+        # self.labelPNG.show()
+        # self.labelEnd.show()
+        # self.endButton.show()
+        # self.endButton.clicked.connect(self.closeOne)
+        # self.setStyleSheet("background-color: white;")
+
+    def closeOne(self):
+        time.sleep(1)
+        self.hide()
+        self.w2 = closeWindow()
+        self.w2.show()
+        # self.close()
 
 
 class windowWhileCreate(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
@@ -237,6 +292,7 @@ class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow)
 
 
 class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+
     def __init__(self, path, path1, value):
         super().__init__()
         self.value = value
