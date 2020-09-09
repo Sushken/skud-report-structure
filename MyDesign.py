@@ -58,7 +58,8 @@ class Ui_MainWindow(object):
         self.labelForSecond.setObjectName("labelForSecond")
         self.comboForSecond = QtWidgets.QComboBox(sharingWindow)
         self.comboForSecond.setGeometry(QtCore.QRect(50, 130, 201, 31))
-        self.comboForSecond.addItems(["ГК Новотранс", "Новотранс Актив", "РК Новотранс", "ХК Новотранс", "Арго"])
+        self.comboForSecond.addItems(["ГК Новотранс", "Новотранс Актив", "РК Новотранс", "ХК Новотранс", "Арго",
+                                      "Питер (НВТА)", "Питер (БТП)", "Питер (КУЛ)", "Питер (СК)"])
         self.comboForSecond.setStyleSheet("border: 1px solid black;")
 
         # Third point
@@ -80,9 +81,43 @@ class Ui_MainWindow(object):
         self.retranslateSharingWindow(sharingWindow)
         QtCore.QMetaObject.connectSlotsByName(sharingWindow)
 
+    def setup_SPB_ChoseWindow(self, SPBChoseWindow):
+        SPBChoseWindow.setObjectName("SPBChoseWindow")
+        SPBChoseWindow.resize(400, 400)
+        SPBChoseWindow.setStyleSheet(self.styleForWindows)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+
+        # Make new file like APPACS
+        self.buttonMakeFile = QtWidgets.QPushButton(SPBChoseWindow)
+        self.buttonMakeFile.setGeometry(QtCore.QRect(20, 60, 361, 41))
+        self.buttonMakeFile.setFont(font)
+        self.buttonMakeFile.setStyleSheet(self.styleForPushButtons)
+        self.buttonMakeFile.setObjectName("buttonMakeFile")
+
+        # Chose number of days
+        self.labelDays = QtWidgets.QLabel(SPBChoseWindow)
+        self.labelDays.setGeometry(QtCore.QRect(20, 130, 150, 41))
+        self.labelDays.setStyleSheet("font: 14pt \"Times New Roman\";")
+        self.labelDays.setObjectName("labelDays")
+        self.numberOdDays = QtWidgets.QSpinBox(SPBChoseWindow)
+        self.numberOdDays.setGeometry(QtCore.QRect(170, 130, 41, 41))
+        self.numberOdDays.setRange(1, 31)
+        self.numberOdDays.setObjectName("numberOdDays")
+
+        # Button for doing migrations
+        self.buttonMigrations = QtWidgets.QPushButton(SPBChoseWindow)
+        self.buttonMigrations.setGeometry(QtCore.QRect(20, 200, 361, 41))
+        self.buttonMigrations.setFont(font)
+        self.buttonMigrations.setStyleSheet(self.styleForPushButtons)
+        self.buttonMigrations.setObjectName("buttonMigrations")
+
+        self.retranslateSPBChoseWindos(SPBChoseWindow)
+        QtCore.QMetaObject.connectSlotsByName(SPBChoseWindow)
+
     def setupChoseWindow(self, choseWindow):
         choseWindow.setObjectName("choseWindow")
-        choseWindow.resize(400, 380)
+        choseWindow.resize(400, 450)
         choseWindow.setStyleSheet(self.styleForWindows)
 
         font = QtGui.QFont()
@@ -98,12 +133,17 @@ class Ui_MainWindow(object):
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_4.setStyleSheet(self.styleForPushButtons)
         self.pushButton_5 = QtWidgets.QPushButton(choseWindow)
-        self.pushButton_5.setGeometry(QtCore.QRect(20, 200, 361, 41))
+        self.pushButton_5.setGeometry(QtCore.QRect(20, 270, 361, 41))
         self.pushButton_5.setFont(font)
         self.pushButton_5.setStyleSheet(self.styleForPushButtons)
         self.pushButton_5.setObjectName("pushButton_5")
+        self.pushButton_6 = QtWidgets.QPushButton(choseWindow)
+        self.pushButton_6.setGeometry(QtCore.QRect(20, 200, 361, 41))
+        self.pushButton_6.setFont(font)
+        self.pushButton_6.setStyleSheet(self.styleForPushButtons)
+        self.pushButton_6.setObjectName("pushButton_6")
         self.label_7 = QtWidgets.QLabel(choseWindow)
-        self.label_7.setGeometry(QtCore.QRect(20, 270, 361, 81))
+        self.label_7.setGeometry(QtCore.QRect(20, 340, 361, 81))
         self.label_7.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignCenter)
         self.label_7.setObjectName("label_7")
 
@@ -232,12 +272,20 @@ class Ui_MainWindow(object):
         self.labelForThird.setText(_translate("sharingWindow", "3. Задайте имя создаваемых файлов"))
         self.pushStartButton.setText(_translate("sharingWindow", "START"))
 
+    def retranslateSPBChoseWindos(self, SPBChoseWindow):
+        _translate = QtCore.QCoreApplication.translate
+        SPBChoseWindow.setWindowTitle(_translate("SPBChoseWindow", "Выберите действие"))
+        self.buttonMakeFile.setText(_translate("SPBChoseWindow", "Создание файла-шаблона APPACS"))
+        self.buttonMigrations.setText(_translate("SPBChoseWindow", "Совмещение двух файлов"))
+        self.labelDays.setText(_translate("SPBChoseWindow", "Количество дней: "))
+
     def retranslateChoseWindow(self, choseWindow):
         _translate = QtCore.QCoreApplication.translate
         choseWindow.setWindowTitle(_translate("choseWindow", "Выберите действие"))
         self.pushButton_3.setText(_translate("choseWindow", "Создание нового файла с БЦ Аэродом"))
         self.pushButton_4.setText(_translate("choseWindow", "Выполнить совмещение двух файлов"))
         self.pushButton_5.setText(_translate("choseWindow", "Разложить файл по папкам на шаре"))
+        self.pushButton_6.setText(_translate("choseWindow", "Питерский отчет"))
         self.label_7.setPixmap(QtGui.QPixmap("img.png"))
 
     def retranslateUi(self, MainWindow):

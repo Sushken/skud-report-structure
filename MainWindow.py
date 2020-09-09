@@ -9,6 +9,7 @@ import MyDesign  # импорт нашего сгенерированного ф
 import ResolveAerodom
 import ResolveSeconds
 import SharingFIles
+import CreateSpbLikeAppacs
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QFileDialog
 
@@ -21,6 +22,7 @@ class choseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.pushButton_3.clicked.connect(self.createAerodom)
         self.pushButton_4.clicked.connect(self.mainProg)
         self.pushButton_5.clicked.connect(self.fileDelivery)
+        self.pushButton_6.clicked.connect(self.SPB)
 
     def createAerodom(self):
         filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
@@ -38,6 +40,70 @@ class choseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.share = fileSharing()
         self.share.show()
 
+    def SPB(self):
+        self.spb = SPBChoseWindow()
+        self.spb.show()
+
+
+class SPBChoseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.setup_SPB_ChoseWindow(self)
+        self.buttonMakeFile.clicked.connect(self.makeNewFile)
+        self.buttonMigrations.clicked.connect(self.makeMigrations)
+
+
+    def makeNewFile(self):
+        filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
+        self.path = filename[0]
+        print(self.path)
+        if self.path:
+            self.createFile = SPBCreateFile(self.path, self.numberOdDays.value())
+            self.createFile.show()
+
+    def makeMigrations(self):
+        self.migrate = mywindow()
+        self.migrate.label_2.setText("Шаблон Питер")
+        self.migrate.label.setText("Болид Питер")
+        self.migrate.label_with_check_box.hide()
+        self.migrate.check_box.hide()
+        self.migrate.show()
+        # self.migrate = SPBMigration()
+        # self.migrate.show()
+
+
+class SPBCreateFile(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+
+    def __init__(self, path, days):
+        super().__init__()
+        self.setupWindowWhileWork(self)
+        self.path = path
+        self.numberOfDays = days
+        self.pushButton_10.hide()
+        self.pushButton_2.clicked.connect(self.getCreate)
+
+    def getCreate(self):
+        self.pushButton_2.close()
+        self.progressBar.show()
+        self.progressBar.setGeometry(QtCore.QRect(130, 70, 141, 41))
+        self.progressBar.setProperty("value", 0)
+        self.progressBar.setObjectName("progressBar")
+
+        self.thread_of_CreateSPBLikeAppacs = CreateSpbLikeAppacs.WorkWithNewFile(self.path, self.numberOfDays)
+        self.thread_of_CreateSPBLikeAppacs.percentageChanged.connect(self.progressBar.setValue)
+        self.thread_of_CreateSPBLikeAppacs.indicator_of_end_work.connect(self.close)
+        self.thread_of_CreateSPBLikeAppacs.start()
+
+    def close(self):
+        time.sleep(1.5)
+        self.progressBar.hide()
+        self.pushButton_10.show()
+        self.pushButton_10.clicked.connect(self.hide_window)
+
+    def hide_window(self):
+        self.hide()
+
 
 class fileSharing(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
     def __init__(self):
@@ -47,7 +113,7 @@ class fileSharing(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.pushStartButton.clicked.connect(self.goSharing)
 
     def openDialogBox(self):
-        filename = QFileDialog.getOpenFileName(self, "Выберите файо", "", "Excel Files *.xlsx")
+        filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
         self.path = filename[0]
         if self.path != '':
             count = 0
@@ -72,19 +138,12 @@ class fileSharing(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         treadSharing = SharingFIles.WorkWithFile(self.path, self.comboForSecond.currentText(), self.lineForThird.text())
         treadSharing.indicator_of_end_work.connect(self.closeOne)
         treadSharing.run()
-        # time.sleep(1)
-        # self.labelPNG.show()
-        # self.labelEnd.show()
-        # self.endButton.show()
-        # self.endButton.clicked.connect(self.closeOne)
-        # self.setStyleSheet("background-color: white;")
 
     def closeOne(self):
         time.sleep(1)
         self.hide()
         self.w2 = closeWindow()
         self.w2.show()
-        # self.close()
 
 
 class windowWhileCreate(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):

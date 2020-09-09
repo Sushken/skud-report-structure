@@ -15,7 +15,7 @@ class CreateFiles:
         self.company = company
         self.nameOfFiles = fileName
         print("Start this prog!")
-        self.db = "БД_test.xlsx"
+        self.db = "БД.xlsx"
         self.oldDataDepartments, self.oldDataPath = self.openFile(self.db)
         self.dataDepartments = []
         self.dataPath = []
@@ -38,12 +38,6 @@ class CreateFiles:
     def openFile(self, file):
         workbook = xlrd.open_workbook(file)
         worksheet = workbook.sheet_by_index(0)
-        # print("Выберите компанию")
-        # print("1 - ГК\n"
-        #       "2 - Актив\n"
-        #       "3 - РК\n"
-        #       "4 - ХК\n"
-        #       "5 - Арго")
         dataDepartment = []
         dataPath = []
         row = 3
@@ -56,14 +50,14 @@ class CreateFiles:
             return dataDepartment, dataPath
         elif self.company == "РК Новотранс":
             while row != worksheet.nrows:
-                dataDepartment.append(worksheet.cell_value(row, 2))
-                dataPath.append(worksheet.cell_value(row, 3))
+                dataDepartment.append(worksheet.cell_value(row, 4))
+                dataPath.append(worksheet.cell_value(row, 5))
                 row += 1
             return dataDepartment, dataPath
         elif self.company == "Новотранс Актив":
             while row != worksheet.nrows:
-                dataDepartment.append(worksheet.cell_value(row, 4))
-                dataPath.append(worksheet.cell_value(row, 5))
+                dataDepartment.append(worksheet.cell_value(row, 2))
+                dataPath.append(worksheet.cell_value(row, 3))
                 row += 1
             return dataDepartment, dataPath
         elif self.company == "ХК Новотранс":
@@ -76,6 +70,30 @@ class CreateFiles:
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 8))
                 dataPath.append(worksheet.cell_value(row, 9))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (НВТА)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 10))
+                dataPath.append(worksheet.cell_value(row, 11))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (БТП)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 12))
+                dataPath.append(worksheet.cell_value(row, 13))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (КУЛ)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 14))
+                dataPath.append(worksheet.cell_value(row, 15))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (СК)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 16))
+                dataPath.append(worksheet.cell_value(row, 17))
                 row += 1
             return dataDepartment, dataPath
 
