@@ -72,40 +72,46 @@ class CreateFiles:
                 dataPath.append(worksheet.cell_value(row, 9))
                 row += 1
             return dataDepartment, dataPath
-        elif self.company == "Питер (НВТА)":
+        elif self.company == "УК Новотранс":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 10))
                 dataPath.append(worksheet.cell_value(row, 11))
                 row += 1
             return dataDepartment, dataPath
-        elif self.company == "Питер (БТП)":
+        elif self.company == "Питер (НВТА)":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 12))
                 dataPath.append(worksheet.cell_value(row, 13))
                 row += 1
             return dataDepartment, dataPath
-        elif self.company == "Питер (КУЛ)":
+        elif self.company == "Питер (БТП)":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 14))
                 dataPath.append(worksheet.cell_value(row, 15))
                 row += 1
             return dataDepartment, dataPath
-        elif self.company == "Питер (СК)":
+        elif self.company == "Питер (КУЛ)":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 16))
                 dataPath.append(worksheet.cell_value(row, 17))
                 row += 1
             return dataDepartment, dataPath
-        elif self.company == "Питер (БВРЗ)":
+        elif self.company == "Питер (СК)":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 18))
                 dataPath.append(worksheet.cell_value(row, 19))
                 row += 1
             return dataDepartment, dataPath
-        elif self.company == "Питер (УК)":
+        elif self.company == "Питер (БВРЗ)":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 20))
                 dataPath.append(worksheet.cell_value(row, 21))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (УК)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 22))
+                dataPath.append(worksheet.cell_value(row, 23))
                 row += 1
             return dataDepartment, dataPath
 
