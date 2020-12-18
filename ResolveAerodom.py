@@ -37,6 +37,13 @@ class Resolve(QtCore.QThread):
             dataGender.append(self.worksheet.cell_value(row, 9))
             dataFirstIn.append(self.worksheet.cell_value(row, 11))
             dataLastOut.append(self.worksheet.cell_value(row, 14))
+            # dataCompany.append(self.worksheet.cell_value(row, 1))  # 2,5,7,9,11,14
+            # dataStructure.append(self.worksheet.cell_value(row, 2))
+            # dataPosition.append(self.worksheet.cell_value(row, 5))
+            # dataFIO.append(self.worksheet.cell_value(row, 0))
+            # dataGender.append(self.worksheet.cell_value(row, 6))
+            # dataFirstIn.append(self.worksheet.cell_value(row, 3))
+            # dataLastOut.append(self.worksheet.cell_value(row, 4))
             row += 1
 
         for j in range(25):

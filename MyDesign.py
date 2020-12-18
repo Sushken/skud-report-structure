@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.comboForSecond = QtWidgets.QComboBox(sharingWindow)
         self.comboForSecond.setGeometry(QtCore.QRect(50, 130, 201, 31))
         self.comboForSecond.addItems(["ГК Новотранс", "Новотранс Актив", "РК Новотранс", "ХК Новотранс", "Арго",
-                                      "Питер (НВТА)", "Питер (БТП)", "Питер (КУЛ)", "Питер (СК)"])
+                                      "Питер (НВТА)", "Питер (БТП)", "Питер (КУЛ)", "Питер (СК)", "Питер (БВРЗ)", "Питер (УК)"])
         self.comboForSecond.setStyleSheet("border: 1px solid black;")
 
         # Third point

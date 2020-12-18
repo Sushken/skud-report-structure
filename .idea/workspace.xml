@@ -21,10 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="10b1c959-c7aa-4a06-9dce-5edd6068c059" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyDesign.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDesign.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAerodom.py" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAerodom.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SharingFIles.py" beforeDir="false" afterPath="$PROJECT_DIR$/SharingFIles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/БД_test.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/БД_test.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/БД.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/БД.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/БД_test.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +52,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.MainWindow">
@@ -259,9 +261,9 @@
       <item itemvalue="Python.MainWindow" />
       <item itemvalue="Python.ResolveSeconds" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.CreateSpbLikeAppacs" />
       <item itemvalue="Python.Main" />
       <item itemvalue="Python.test (1)" />
-      <item itemvalue="Python.CreateSpbLikeAppacs" />
     </list>
     <recent_temporary>
       <list>
@@ -287,7 +289,18 @@
       <workItem from="1598352599723" duration="5279000" />
       <workItem from="1598942975040" duration="2975000" />
       <workItem from="1599027062646" duration="20186000" />
-      <workItem from="1599469298991" duration="21057000" />
+      <workItem from="1599469298991" duration="22700000" />
+      <workItem from="1599642782339" duration="3012000" />
+      <workItem from="1600236254854" duration="3084000" />
+      <workItem from="1600753944857" duration="136000" />
+      <workItem from="1601536716704" duration="2644000" />
+      <workItem from="1602223070971" duration="671000" />
+      <workItem from="1602484140132" duration="82000" />
+      <workItem from="1602656637552" duration="614000" />
+      <workItem from="1602830842337" duration="596000" />
+      <workItem from="1603694428319" duration="586000" />
+      <workItem from="1603780853984" duration="14126000" />
+      <workItem from="1606715635252" duration="19981000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Прохода нет&quot; delete from check box">
       <created>1580803786559</created>
@@ -303,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598274591117</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add SPB Bolid and new GUI">
+      <created>1599634242905</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599634242905</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +339,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -326,65 +347,70 @@
     </ignored-roots>
     <MESSAGE value="&quot;Прохода нет&quot; delete from check box" />
     <MESSAGE value="Add Share Files and new GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Share Files and new GUI" />
+    <MESSAGE value="Add SPB Bolid and new GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SPB Bolid and new GUI" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1598274589800">
+    <state x="707" y="374" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607406760687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598274589800" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596191552065">
+    <state x="707" y="374" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1607406760687" />
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1599634239722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596191552065" />
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom" timestamp="1599563295677">
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599634239722" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1600754071130">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599563295677" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600754071130" />
+    <state width="1877" height="166" key="GridCell.Tab.0.bottom" timestamp="1608294342561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608294342561" />
     <state width="1877" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.center" timestamp="1599563295676">
+    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
+    <state width="1877" height="166" key="GridCell.Tab.0.center" timestamp="1608294342561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599563295676" />
+    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608294342561" />
     <state width="1877" height="260" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.left" timestamp="1599563295676">
+    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
+    <state width="1877" height="166" key="GridCell.Tab.0.left" timestamp="1608294342561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599563295676" />
+    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608294342561" />
     <state width="1877" height="260" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.right" timestamp="1599563295676">
+    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
+    <state width="1877" height="166" key="GridCell.Tab.0.right" timestamp="1608294342561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599563295676" />
+    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608294342561" />
     <state width="1877" height="260" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom" timestamp="1599482767002">
+    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
+    <state width="1877" height="260" key="GridCell.Tab.1.bottom" timestamp="1599642674416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599482767002" />
+    <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674416" />
     <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908587" />
-    <state width="1877" height="260" key="GridCell.Tab.1.center" timestamp="1599482767001">
+    <state width="1877" height="260" key="GridCell.Tab.1.center" timestamp="1599642674415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599482767001" />
+    <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674415" />
     <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908586" />
-    <state width="1877" height="260" key="GridCell.Tab.1.left" timestamp="1599482767001">
+    <state width="1877" height="260" key="GridCell.Tab.1.left" timestamp="1599642674415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599482767001" />
+    <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674415" />
     <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908586" />
-    <state width="1877" height="260" key="GridCell.Tab.1.right" timestamp="1599482767001">
+    <state width="1877" height="260" key="GridCell.Tab.1.right" timestamp="1599642674415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599482767001" />
+    <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674415" />
     <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908586" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1597393402018">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599634244428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597393402018" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1598274600941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598274600941" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599634244428" />
     <state x="2322" y="-17" width="1235" height="834" maximized="true" key="dock-window-1" timestamp="1599478332295">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -392,6 +418,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skud_report_structure$CreateSpbLikeAppacs.coverage" NAME="CreateSpbLikeAppacs Coverage Results" MODIFIED="1599477766842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1599563295663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1608294342534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
