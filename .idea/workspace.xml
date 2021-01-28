@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10b1c959-c7aa-4a06-9dce-5edd6068c059" name="Default Changelist" comment="" />
+    <list default="true" id="10b1c959-c7aa-4a06-9dce-5edd6068c059" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SharingFIles.py" beforeDir="false" afterPath="$PROJECT_DIR$/SharingFIles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/БД.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/БД.xlsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -296,7 +300,13 @@
       <workItem from="1602830842337" duration="596000" />
       <workItem from="1603694428319" duration="586000" />
       <workItem from="1603780853984" duration="14126000" />
-      <workItem from="1606715635252" duration="20837000" />
+      <workItem from="1606715635252" duration="23978000" />
+      <workItem from="1608639789290" duration="13250000" />
+      <workItem from="1611295303576" duration="128000" />
+      <workItem from="1611295677321" duration="2011000" />
+      <workItem from="1611555226134" duration="7475000" />
+      <workItem from="1611732592659" duration="6269000" />
+      <workItem from="1611827523832" duration="1502000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Прохода нет&quot; delete from check box">
       <created>1580803786559</created>
@@ -333,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608295213696</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add Companies_v2">
+      <created>1608295993020</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608295993020</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,76 +377,11 @@
     <MESSAGE value="Add Share Files and new GUI" />
     <MESSAGE value="Add SPB Bolid and new GUI" />
     <MESSAGE value="Add Companies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Companies" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="707" y="374" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607406760687">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="707" y="374" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1607406760687" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1608295211864">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608295211864" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1600754071130">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600754071130" />
-    <state width="938" height="166" key="GridCell.Tab.0.bottom" timestamp="1608295271059">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608295271059" />
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
-    <state width="938" height="166" key="GridCell.Tab.0.center" timestamp="1608295271059">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="166" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608295271059" />
-    <state width="1877" height="260" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
-    <state width="938" height="166" key="GridCell.Tab.0.left" timestamp="1608295271059">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="166" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608295271059" />
-    <state width="1877" height="260" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
-    <state width="938" height="166" key="GridCell.Tab.0.right" timestamp="1608295271059">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="938" height="166" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608295271059" />
-    <state width="1877" height="260" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908585" />
-    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607667361390" />
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom" timestamp="1599642674416">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674416" />
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908587" />
-    <state width="1877" height="260" key="GridCell.Tab.1.center" timestamp="1599642674415">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674415" />
-    <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908586" />
-    <state width="1877" height="260" key="GridCell.Tab.1.left" timestamp="1599642674415">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674415" />
-    <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908586" />
-    <state width="1877" height="260" key="GridCell.Tab.1.right" timestamp="1599642674415">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599642674415" />
-    <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599224908586" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1608295262161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608295262161" />
-    <state x="2322" y="-17" width="1235" height="834" maximized="true" key="dock-window-1" timestamp="1599478332295">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2322" y="-17" width="1235" height="834" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599478332295" />
+    <MESSAGE value="Add Companies_v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Companies_v2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skud_report_structure$CreateSpbLikeAppacs.coverage" NAME="CreateSpbLikeAppacs Coverage Results" MODIFIED="1599477766842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1608294984992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1611833994993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

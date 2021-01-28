@@ -158,16 +158,19 @@ class WorkWithFile(QtCore.QThread):
 
         for dbCount in range(len(self.fileCreator.dataDepartments)):
             i = 0
+            ifNoEntry = True
             workbook = xlsxwriter.Workbook(self.fileCreator.dataPath[dbCount] + self.fileCreator.nameOfFilesXlsx)
             worksheet = workbook.add_worksheet("Лист1")
             date_format = workbook.add_format({'num_format': '[h]:mm:ss'})
             set_row = 1
+
             while i != len(new_data):
                 if new_data[i][1] == self.fileCreator.dataDepartments[dbCount]:
                     worksheet.write_row(set_row, 0, new_data[i])
                     set_row += 1
+                    ifNoEntry = False
                 i += 1
-            worksheet.set_column('A:K', width=20)
+            worksheet.set_column('A:K', width=30)
             worksheet.set_column('K:K', None, None, {'hidden': 1})
             worksheet.set_column('J:J', width=20, cell_format=date_format)
             worksheet.set_row(0, height=50)
@@ -178,6 +181,11 @@ class WorkWithFile(QtCore.QThread):
             first_row_format.set_text_wrap()
             first_row_format.set_font_name('Calibri')
             worksheet.write_row(row=0, col=0, data=self.header, cell_format=first_row_format)
+            if ifNoEntry == True:
+                format1 = workbook.add_format()
+                format1.set_bold()
+                worksheet.set_column('A:A', width=60)
+                worksheet.write_string(row=1, col=0, string="Проходы сторудников подразделения отсутствуют.", cell_format=format1)
             workbook.close()
         end = datetime.now()
         print("work time = ", end-start)
