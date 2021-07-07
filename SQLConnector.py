@@ -113,21 +113,18 @@ def join_tables(user_enroll, user_pass):
 
 def write_file(result, company):
     current_date = datetime.datetime.now()
+    today = datetime.date.today()
+    today = today.strftime("%d-%m-%Y")
     if company == "hc":
-        name_file = 'Отчет по обучению ЦА на ' + str(current_date.day) + '-' + str(current_date.month) + '-' + str(
-            current_date.year) + '.xlsx'
+        name_file = 'Отчет по обучению ЦА на ' + str(today) + '.xlsx'
     if company == "kvrz":
-        name_file = 'Отчет по обучению КВРЗ на ' + str(current_date.day) + '-' + str(current_date.month) + '-' + str(
-            current_date.year) + '.xlsx'
+        name_file = 'Отчет по обучению КВРЗ на ' + str(today) + '.xlsx'
     if company == "kvrp":
-        name_file = 'Отчет по обучению КВРП на ' + str(current_date.day) + '-' + str(current_date.month) + '-' + str(
-            current_date.year) + '.xlsx'
+        name_file = 'Отчет по обучению КВРП на ' + str(today) + '.xlsx'
     if company == "bvrp":
-        name_file = 'Отчет по обучению БВРП на ' + str(current_date.day) + '-' + str(current_date.month) + '-' + str(
-            current_date.year) + '.xlsx'
+        name_file = 'Отчет по обучению БВРП на ' + str(today) + '.xlsx'
     if company == "vrp":
-        name_file = 'Отчет по обучению ВРП на ' + str(current_date.day) + '-' + str(current_date.month) + '-' + str(
-            current_date.year) + '.xlsx'
+        name_file = 'Отчет по обучению ВРП на ' + str(today) + '.xlsx'
     file_path= "N:\УК\УКБ\Курсы Moodle\Отчеты\Временная папка для программы\\" + name_file
     workbook = xlsxwriter.Workbook(file_path)
     worksheet = workbook.add_worksheet('Обучение')
@@ -135,20 +132,33 @@ def write_file(result, company):
     c = 0
     col_name = (
     'Фамилия', 'Имя', 'Email', 'Компания', 'Название курса', 'Количество баллов', 'Процент', 'Курс пройден', 'Время')
-    worksheet.write_row(r, c, col_name)
+    first_row_format = workbook.add_format()
+    first_row_format.set_bg_color('#C5D9F1')
+    first_row_format.set_bold()
+    first_row_format.set_font_size(11)
+    first_row_format.set_text_wrap()
+    first_row_format.set_font_name('Calibri')
+    worksheet.write_row(r, c, col_name, first_row_format)
     r = r + 1
     worksheet.set_column(8, 500)
     for row in result:
-        worksheet.write_row(r, c, tuple(row))
+        user_novotrans=list(row)
+        if str(user_novotrans[0]) != 'Новотранс':
+            worksheet.write_row(r, c, tuple(row))
+        else:
+             r=r-1
         if len(row)-1 == 8:
             dateformat = workbook.add_format({'num_format': 'dd-mm-yyyy hh:mm'})
+            number_format = workbook.add_format({'num_format': '0.00'})
             worksheet.set_column('I:I', 20, dateformat)
             worksheet.set_column('A:B', 18)
             worksheet.set_column('C:C', 22)
             worksheet.set_column('D:D', 24)
             worksheet.set_column('F:G', 18)
+            worksheet.set_column('F:F', cell_format=number_format)
             worksheet.set_column('H:H', 22)
             worksheet.set_column('E:E', 50)
+
         r = r + 1
     workbook.close()
 

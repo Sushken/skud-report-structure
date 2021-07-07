@@ -161,7 +161,7 @@ class WorkWithFile(QtCore.QThread):
             ifNoEntry = True
             workbook = xlsxwriter.Workbook(self.fileCreator.dataPath[dbCount] + self.fileCreator.nameOfFilesXlsx)
             worksheet = workbook.add_worksheet("Лист1")
-            date_format = workbook.add_format({'num_format': '[h]:mm:ss'})
+            date_format = workbook.add_format({'num_format': 'dd-mm-yyyy hh:mm'})
             set_row = 1
 
             while i != len(new_data):
