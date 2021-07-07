@@ -31,6 +31,53 @@ class Ui_MainWindow(object):
                 border: 1px solid black;
             '''
 
+
+    def setupStartMenu(self, startMenu):
+        startMenu.setObjectName("startMenu")
+        startMenu.resize(400, 400)
+        startMenu.setStyleSheet(self.styleForWindows)
+
+        self.moodleButton = QtWidgets.QPushButton(startMenu)
+        self.moodleButton.setGeometry(QtCore.QRect(20, 60, 361, 51))
+        self.moodleButton.setStyleSheet(self.styleForPushButtons)
+
+        self.skudButton = QtWidgets.QPushButton(startMenu)
+        self.skudButton.setGeometry(QtCore.QRect(20, 140, 361, 51))
+        self.skudButton.setStyleSheet(self.styleForPushButtons)
+        self.retranslateStartMenu(startMenu)
+
+    def setupMoodleReport(self, moodleReport):
+        moodleReport.setObjectName("moodleReport")
+        moodleReport.resize(400, 500)
+        moodleReport.setStyleSheet(self.styleForWindows)
+
+        self.HcButton = QtWidgets.QPushButton(moodleReport)
+        self.HcButton.setGeometry(QtCore.QRect(20, 60, 361, 51))
+        self.HcButton.setStyleSheet(self.styleForPushButtons)
+
+        self.KvrzButton = QtWidgets.QPushButton(moodleReport)
+        self.KvrzButton.setGeometry(QtCore.QRect(20, 130, 361, 51))
+        self.KvrzButton.setStyleSheet(self.styleForPushButtons)
+
+        self.KvrpButton = QtWidgets.QPushButton(moodleReport)
+        self.KvrpButton.setGeometry(QtCore.QRect(20, 200, 361, 51))
+        self.KvrpButton.setStyleSheet(self.styleForPushButtons)
+
+        self.VrpButton = QtWidgets.QPushButton(moodleReport)
+        self.VrpButton.setGeometry(QtCore.QRect(20, 270, 361, 51))
+        self.VrpButton.setStyleSheet(self.styleForPushButtons)
+
+        self.BvrpButton = QtWidgets.QPushButton(moodleReport)
+        self.BvrpButton.setGeometry(QtCore.QRect(20, 340, 361, 51))
+        self.BvrpButton.setStyleSheet(self.styleForPushButtons)
+
+        self.label_nv = QtWidgets.QLabel(moodleReport)
+        self.label_nv.setGeometry(QtCore.QRect(20, 410, 361, 81))
+        self.label_nv.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignCenter)
+        self.label_nv.setObjectName("label_nv")
+
+        self.retranslateMoodleReport(moodleReport)
+
     def setupFileSharingWindow(self, sharingWindow):
         sharingWindow.setObjectName("sharingWindow")
         sharingWindow.resize(400, 400)
@@ -312,3 +359,19 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("Dialog1", "OK"))
         self.pushButton_10.setText(_translate("Dialog1", "ЗАКРЫТЬ"))
         self.label_5.setText(_translate("Dialog1", "Нажмите ОК и дождитесь окончания программы!"))
+
+    def retranslateStartMenu(self,starMenu):
+        _translate = QtCore.QCoreApplication.translate
+        starMenu.setWindowTitle(_translate("startMenu", "Добро пожаловать!"))
+        self.moodleButton.setText(_translate("startMenu", "Отчет Moodle"))
+        self.skudButton.setText(_translate("startMenu", "Отчет СКУД"))
+
+    def retranslateMoodleReport(self, moodleReport):
+        _translate = QtCore.QCoreApplication.translate
+        moodleReport.setWindowTitle(_translate("moodleReport", "Добро пожаловать!"))
+        self.HcButton.setText(_translate("moodleReport", "Отчет ЦА"))
+        self.KvrzButton.setText(_translate("moodleReport", "Отчет КВРЗ"))
+        self.KvrpButton.setText(_translate("moodleReport", "Отчет КВРП"))
+        self.VrpButton.setText(_translate("moodleReport", "Отчет ВРП"))
+        self.BvrpButton.setText(_translate("moodleReport", "Отчет БВРП"))
+        self.label_nv.setPixmap(QtGui.QPixmap("img.png"))

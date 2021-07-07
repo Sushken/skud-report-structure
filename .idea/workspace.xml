@@ -20,11 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10b1c959-c7aa-4a06-9dce-5edd6068c059" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SQLConnector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ExcelWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ExcelWork.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/БД.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/БД.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyDesign.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDesign.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,6 +314,21 @@
       <workItem from="1611827523832" duration="4279000" />
       <workItem from="1612159603646" duration="7387000" />
       <workItem from="1612766883913" duration="802000" />
+      <workItem from="1612768368418" duration="189000" />
+      <workItem from="1614589624712" duration="601000" />
+      <workItem from="1615874691996" duration="18000" />
+      <workItem from="1615875530956" duration="1236000" />
+      <workItem from="1616512489409" duration="1223000" />
+      <workItem from="1618561357404" duration="1766000" />
+      <workItem from="1618904023560" duration="20000" />
+      <workItem from="1620366926673" duration="830000" />
+      <workItem from="1620374975450" duration="595000" />
+      <workItem from="1622485599208" duration="720000" />
+      <workItem from="1622486473605" duration="265000" />
+      <workItem from="1622488356140" duration="2115000" />
+      <workItem from="1623392854299" duration="17000" />
+      <workItem from="1625032605064" duration="323000" />
+      <workItem from="1625230323538" duration="26796000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Прохода нет&quot; delete from check box">
       <created>1580803786559</created>
@@ -383,6 +401,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/skud-report-restructure" />
+      <path value="$PROJECT_DIR$/../git" />
     </ignored-roots>
     <MESSAGE value="&quot;Прохода нет&quot; delete from check box" />
     <MESSAGE value="Add Share Files and new GUI" />
@@ -394,6 +413,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skud_report_structure$CreateSpbLikeAppacs.coverage" NAME="CreateSpbLikeAppacs Coverage Results" MODIFIED="1599477766842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1612767327925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1625653559364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

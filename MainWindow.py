@@ -12,6 +12,64 @@ import SharingFIles
 import CreateSpbLikeAppacs
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QFileDialog
+import SQLConnector
+
+class startUpMenu(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.setupStartMenu(self)
+        self.moodleButton.clicked.connect(self.goToMoodle)
+        self.skudButton.clicked.connect(self.goToSkud)
+
+    def goToMoodle(self):
+        self.moodleReport_ = moodleReport()
+        self.moodleReport_.show()
+
+    def goToSkud(self):
+        self.choseWindow_ = choseWindow()
+        self.choseWindow_.show()
+
+
+class moodleReport(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.setupMoodleReport(self)
+        self.HcButton.clicked.connect(self.getHCReport)
+        self.KvrzButton.clicked.connect(self.getKvrzReport)
+        self.KvrpButton.clicked.connect(self.getKvrpReport)
+        self.VrpButton.clicked.connect(self.getVrpReport)
+        self.BvrpButton.clicked.connect(self.getBvrpReport)
+
+
+    def getHCReport(self):
+        SQLConnector.get_report('hc')
+        self.test = closeWindow()
+        self.test.show()
+
+
+    def getKvrzReport(self):
+        SQLConnector.get_report('kvrz')
+        self.test = closeWindow()
+        self.test.show()
+
+    def getKvrpReport(self):
+        SQLConnector.get_report('kvrp')
+        self.test = closeWindow()
+        self.test.show()
+
+    def getVrpReport(self):
+        SQLConnector.get_report('vrp')
+        self.test = closeWindow()
+        self.test.show()
+
+
+    def getBvrpReport(self):
+        SQLConnector.get_report('bvrp')
+        self.test = closeWindow()
+        self.test.show()
+        self.hide()
 
 
 class choseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
@@ -147,6 +205,7 @@ class fileSharing(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
 
 class windowWhileCreate(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
+
 
     def __init__(self, path):
         super().__init__()
@@ -442,8 +501,10 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    _choseWindow = choseWindow()
-    _choseWindow.show()
+    # _choseWindow = choseWindow()
+    # _choseWindow.show()
+    startMenu = startUpMenu()
+    startMenu.show()
     sys.exit(app.exec_())
 
 
