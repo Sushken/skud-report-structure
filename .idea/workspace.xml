@@ -20,9 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10b1c959-c7aa-4a06-9dce-5edd6068c059" name="Default Changelist" comment="Add Moodle Reports">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQLConnector.py" beforeDir="false" afterPath="$PROJECT_DIR$/SQLConnector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharingFIles.py" beforeDir="false" afterPath="$PROJECT_DIR$/SharingFIles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/БД.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/БД.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +324,7 @@
       <workItem from="1622488356140" duration="2115000" />
       <workItem from="1623392854299" duration="17000" />
       <workItem from="1625032605064" duration="323000" />
-      <workItem from="1625230323538" duration="31872000" />
+      <workItem from="1625230323538" duration="28996000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Прохода нет&quot; delete from check box">
       <created>1580803786559</created>
@@ -381,14 +382,7 @@
       <option name="project" value="LOCAL" />
       <updated>1625656571310</updated>
     </task>
-    <task id="LOCAL-00009" summary="Add Moodle Reports">
-      <created>1625659051033</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1625659051033</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +417,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skud_report_structure$CreateSpbLikeAppacs.coverage" NAME="CreateSpbLikeAppacs Coverage Results" MODIFIED="1599477766842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1625661649417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/skud_report_structure$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1626087771642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/skud_report_structure$BugFisTest.coverage" NAME="BugFisTest Coverage Results" MODIFIED="1625663020462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
