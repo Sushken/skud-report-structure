@@ -114,6 +114,12 @@ class CreateFiles:
                 dataPath.append(worksheet.cell_value(row, 23))
                 row += 1
             return dataDepartment, dataPath
+        elif self.company == "Питер (Строй)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 24))
+                dataPath.append(worksheet.cell_value(row, 25))
+                row += 1
+            return dataDepartment, dataPath
 
 
 class WorkWithFile(QtCore.QThread):
