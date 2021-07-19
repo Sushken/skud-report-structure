@@ -17,10 +17,28 @@ class AddName(QtCore.QThread):
     def run(self):
         wbOut = openpyxl.load_workbook(filename=self.nameOfOutFile)
         sheetOut = wbOut['Лист1']
-        sheetOut.delete_rows(1, 1)
-        wbOut.save(filename=self.nameOfOutFile)
         dataOut = sheetOut.values
         dataOut = list(dataOut)
+
+        a = list(dataOut[1])
+        print(a)
+        print(type(a[7]))
+        print(type(a[8]))
+
+        if (a[7] or a[8]) is None:
+            value = "2021.01.01 00:00:01"
+            a[7] = value
+            a[8] = value
+            sheetOut.cell(row=2, column=8).value = a[7]
+            sheetOut.cell(row=2, column=9).value = a[8]
+            wbOut.save(filename=self.nameOfOutFile)
+
+        sheetOut.delete_rows(1, 1)
+        wbOut.save(filename=self.nameOfOutFile)
+        sheetOut = wbOut['Лист1']
+        dataOut = sheetOut.values
+        dataOut = list(dataOut)
+
         self.count += 2
         self.percentageChanged.emit(self.count)
 
