@@ -1,4 +1,5 @@
 import sys
+import os
 import time
 import AddFullNameOnPostions
 import AddSumOfTime
@@ -13,6 +14,7 @@ import CreateSpbLikeAppacs
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QFileDialog
 import SQLConnector
+
 
 class startUpMenu(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
@@ -258,7 +260,7 @@ class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
             self.choseNumber.show()
 
     def open_dialog_box(self):
-        filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
+        filename = QFileDialog.getOpenFileName(self, "Выберите файл", os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop'), "Excel Files *.xlsx")
         self.path = filename[0]
         if self.path != '':
             count = 0

@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from ReadHtml import MainWindow as mw
 
 
 class Ui_MainWindow(object):
@@ -32,18 +33,41 @@ class Ui_MainWindow(object):
             '''
 
 
+    def setupTestMenu(self, layOut):
+
+        self.button_1 = QtWidgets.QPushButton("Первая кнопка")
+        self.button_1.setStyleSheet(self.styleForPushButtons)
+        self.button_1.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+
+        self.button_2 = QtWidgets.QPushButton("Вторая кнопка")
+        self.button_2.setStyleSheet(self.styleForPushButtons)
+        self.button_2.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+
+        layOut.addWidget(self.button_1)
+        layOut.addWidget(self.button_2)
+
     def setupStartMenu(self, startMenu):
         startMenu.setObjectName("startMenu")
         startMenu.resize(400, 400)
         startMenu.setStyleSheet(self.styleForWindows)
 
+        layOut = QtWidgets.QGridLayout()
+        widget = QtWidgets.QWidget()
+
         self.moodleButton = QtWidgets.QPushButton(startMenu)
-        self.moodleButton.setGeometry(QtCore.QRect(20, 60, 361, 51))
+        # self.moodleButton.setGeometry(QtCore.QRect(20, 60, 361, 51))
+        self.moodleButton.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.moodleButton.setStyleSheet(self.styleForPushButtons)
 
         self.skudButton = QtWidgets.QPushButton(startMenu)
-        self.skudButton.setGeometry(QtCore.QRect(20, 140, 361, 51))
+        # self.skudButton.setGeometry(QtCore.QRect(20, 140, 361, 51))
+        self.skudButton.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.skudButton.setStyleSheet(self.styleForPushButtons)
+
+        layOut.addWidget(self.moodleButton)
+        layOut.addWidget(self.skudButton)
+        widget.setLayout(layOut)
+        startMenu.setCentralWidget(widget)
         self.retranslateStartMenu(startMenu)
 
     def setupMoodleReport(self, moodleReport):
@@ -134,7 +158,6 @@ class Ui_MainWindow(object):
         SPBChoseWindow.setStyleSheet(self.styleForWindows)
         font = QtGui.QFont()
         font.setPointSize(10)
-
         # Make new file like APPACS
         self.buttonMakeFile = QtWidgets.QPushButton(SPBChoseWindow)
         self.buttonMakeFile.setGeometry(QtCore.QRect(20, 60, 361, 41))
@@ -151,6 +174,7 @@ class Ui_MainWindow(object):
         self.numberOdDays.setGeometry(QtCore.QRect(170, 130, 41, 41))
         self.numberOdDays.setRange(1, 31)
         self.numberOdDays.setObjectName("numberOdDays")
+
 
         # Button for doing migrations
         self.buttonMigrations = QtWidgets.QPushButton(SPBChoseWindow)
