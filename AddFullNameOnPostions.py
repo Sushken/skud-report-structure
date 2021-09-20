@@ -21,9 +21,6 @@ class AddName(QtCore.QThread):
         dataOut = list(dataOut)
 
         a = list(dataOut[1])
-        print(a)
-        print(type(a[7]))
-        print(type(a[8]))
 
         if (a[7] or a[8]) is None:
             value = "2021.01.01 00:00:01"
@@ -43,6 +40,7 @@ class AddName(QtCore.QThread):
         self.percentageChanged.emit(self.count)
 
         i = 0
+        dataCompany = []
         dataFamily = []
         dataName = []
         dataMiddleName = []
@@ -52,6 +50,7 @@ class AddName(QtCore.QThread):
             if i == sheetOut.max_row / 2:
                 self.count += 8
                 self.percentageChanged.emit(self.count)
+            dataCompany.append(dataOut[i][0])
             dataFamily.append(dataOut[i][4])
             dataName.append(dataOut[i][5])
             dataMiddleName.append(dataOut[i][6])
@@ -62,6 +61,7 @@ class AddName(QtCore.QThread):
         print(dataName)
         print(dataMiddleName)
 
+        tmpDataCompany = dataCompany[0]
         tmpDataFamily = dataFamily[0]
         tmpDataName = dataName[0]
         tmpDataMiddleName = dataMiddleName[0]
@@ -70,12 +70,14 @@ class AddName(QtCore.QThread):
         pre_last_family = 0
         for i in range(1, len(dataFamily)):
             if dataFamily[i] is None:
+                sheetOut.cell(row=i + 1, column=1).value = tmpDataCompany
                 sheetOut.cell(row=i + 1, column=2).value = tmpDataOtdel
                 sheetOut.cell(row=i + 1, column=3).value = tmpDataWork
                 sheetOut.cell(row=i + 1, column=5).value = tmpDataFamily
                 sheetOut.cell(row=i + 1, column=6).value = tmpDataName
                 sheetOut.cell(row=i + 1, column=7).value = tmpDataMiddleName
             else:
+                tmpDataCompany = dataCompany[i]
                 tmpDataOtdel = dataOtdel[i]
                 tmpDataWork = dataWork[i]
                 tmpDataFamily = dataFamily[i]
@@ -103,6 +105,7 @@ class AddName(QtCore.QThread):
         print(oneBlock)
 
         for j in range(1, oneBlock + 1):
+            sheetOut.cell(row=pre_last_family + j + 1, column=1).value = tmpDataCompany
             sheetOut.cell(row=pre_last_family + j + 1, column=2).value = tmpDataOtdel
             sheetOut.cell(row=pre_last_family + j + 1, column=3).value = tmpDataWork
             sheetOut.cell(row=pre_last_family + j + 1, column=5).value = tmpDataFamily

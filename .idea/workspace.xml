@@ -24,10 +24,7 @@
       <change afterPath="$PROJECT_DIR$/ReadHtml.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/test.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyDesign.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyDesign.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SharingFIles.py" beforeDir="false" afterPath="$PROJECT_DIR$/SharingFIles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/БД.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/БД.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddFullNameOnPostions.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddFullNameOnPostions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +60,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
@@ -394,7 +392,8 @@
       <workItem from="1630066274733" duration="1615000" />
       <workItem from="1630392431871" duration="4020000" />
       <workItem from="1630565199854" duration="727000" />
-      <workItem from="1631789745875" duration="1840000" />
+      <workItem from="1631789745875" duration="2502000" />
+      <workItem from="1632136250617" duration="991000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Прохода нет&quot; delete from check box">
       <created>1580803786559</created>
@@ -487,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629268097917</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="DB change">
+      <created>1631796083813</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1631796083813</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
