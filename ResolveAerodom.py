@@ -12,13 +12,11 @@ class Resolve(QtCore.QThread):
 
     def __init__(self, nameOfInFile, count):
         super().__init__()
-        print("Start the Resolve Aerodom")
         self.nameOfInFile = nameOfInFile
         self.count = count
 
     def run(self):
         start_time = datetime.now()
-        print(start_time)
         self.workbook = xlrd.open_workbook(self.nameOfInFile)
         self.worksheet = self.workbook.sheet_by_index(0)
         dataCompany = []
@@ -37,27 +35,12 @@ class Resolve(QtCore.QThread):
             dataGender.append(self.worksheet.cell_value(row, 9))
             dataFirstIn.append(self.worksheet.cell_value(row, 11))
             dataLastOut.append(self.worksheet.cell_value(row, 14))
-            # dataCompany.append(self.worksheet.cell_value(row, 1))  # 2,5,7,9,11,14
-            # dataStructure.append(self.worksheet.cell_value(row, 2))
-            # dataPosition.append(self.worksheet.cell_value(row, 5))
-            # dataFIO.append(self.worksheet.cell_value(row, 0))
-            # dataGender.append(self.worksheet.cell_value(row, 6))
-            # dataFirstIn.append(self.worksheet.cell_value(row, 3))
-            # dataLastOut.append(self.worksheet.cell_value(row, 4))
             row += 1
 
         for j in range(25):
             time.sleep(0.2)
             self.count += 1
             self.percentageChanged.emit(self.count)
-
-        print(len(dataCompany))
-        print(len(dataStructure))
-        print(len(dataPosition))
-        print(len(dataFIO))
-        print(len(dataGender))
-        print(len(dataFirstIn))
-        print(len(dataLastOut))
 
         tmp_dataCompany = []
         tmp_dataStructure = []
@@ -106,6 +89,5 @@ class Resolve(QtCore.QThread):
             self.percentageChanged.emit(self.count)
         end_time = datetime.now()
         self.duration = end_time - start_time
-        print("Продолжительность : ", self.duration)
         self.indicator = True
         self.indicator_of_end_work.emit(self.indicator)

@@ -12,7 +12,6 @@ class Main(QtCore.QThread):
         self.nameOfOutFile = nameOfOutFile
         self.nameOfInFile = nameOfInFile
         self.count = count
-        print(self.count, "default count value")
         self.time = time
 
     def run(self):
@@ -29,8 +28,6 @@ class Main(QtCore.QThread):
         for j in range(5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.5)
-        print(self.count, "first point")
 
         # СОЗДАНИЕ ЛИСТОВ С ФАМИЛИЯМИ И ВРЕМЕНЕМ ПРИХОДА И УХОДА
         i = 0
@@ -49,10 +46,7 @@ class Main(QtCore.QThread):
         while dataNameOut[i] == dataNameOut[i + 1]:
             oneSecondName += 1
             i += 1
-        print(oneSecondName)
 
-        print(dataNameIn)
-        print(dataNameOut)
         i = 0
         dataTimeIn = []
         dataTimeInExit = []
@@ -60,8 +54,7 @@ class Main(QtCore.QThread):
             dataTimeIn.append(dataIn[i][5])
             dataTimeInExit.append(dataIn[i][6])
             i += 1
-        print(dataTimeIn, "dataTimeIn")
-        print(dataTimeInExit, "dataTimeInExit")
+
         j = 0
         dataTimeOut = []
         dataTimeOutExit = []
@@ -69,14 +62,10 @@ class Main(QtCore.QThread):
             dataTimeOut.append(dataOut[j][7])
             dataTimeOutExit.append(dataOut[j][8])
             j += 1
-        print(dataTimeOut, "dataTimeOut")
-        print(dataTimeOutExit, "dataTimeOutExit")
 
         for j in range(5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.5)
-        print(self.count, "first point")
 
         print("Сравнение времени входа")
         # Сравнение времени входа
@@ -111,8 +100,7 @@ class Main(QtCore.QThread):
         for j in range(5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.5)
-        print(self.count, "first point")
+
         # Сравнение времени выхода
         for j in range(len(dataNameIn)):
             i = 0
@@ -147,8 +135,6 @@ class Main(QtCore.QThread):
         for j in range(5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.5)
-        print(self.count, "first point")
 
         self.indicator = True
         self.indicator_of_end_work.emit(self.indicator)

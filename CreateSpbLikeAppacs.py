@@ -1,6 +1,5 @@
 import openpyxl
 import xlrd
-import time
 import os
 import xlsxwriter
 from PyQt5 import QtCore
@@ -61,11 +60,9 @@ class CreateFile:
             for col in range(worksheet.ncols - 2):
                 dataTest.append(worksheet.cell_value(row, col))
             row += 1
-        print(dataTest)
         new_data = []
         for i in range(0, len(dataTest) - 4, 5):
             new_data.append(dataTest[i:i + 5])
-        print(new_data)
         for j in range(25):
             self.count += 1
             self.percent.emit(self.count)
@@ -77,7 +74,6 @@ class CreateFile:
             if new_data[i][3] != new_data[i - 1][3]:
                 last_data.append(new_data[i])
             i += 1
-        print(last_data)
 
         counts = []
         for i in range(len(last_data)):
@@ -108,19 +104,9 @@ class WorkWithNewFile(QtCore.QThread):
         super().__init__()
         self.file = path
         self.numberOfDays = days
-        # print("Введите кол-во за \который делается отчет: ")
-        # self.day_of_month = int(input())
 
     def run(self):
         create = CreateFile(self.file, self.numberOfDays, self.percentageChanged)
         create.run()
         self.indicator = True
         self.indicator_of_end_work.emit(self.indicator)
-
-
-if __name__ == '__main__':
-    file = "Test.xlsx"
-    print("Введите кол-во за \который делается отчет: ")
-    day_of_month = int(input())
-    start = WorkWithNewFile(file, day_of_month)
-    start.run()

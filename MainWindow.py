@@ -87,7 +87,6 @@ class choseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
     def createAerodom(self):
         filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
         self.path = filename[0]
-        print(self.path)
         if self.path:
             self.WWC = windowWhileCreate(self.path)
             self.WWC.show()
@@ -117,7 +116,6 @@ class SPBChoseWindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
     def makeNewFile(self):
         filename = QFileDialog.getOpenFileName(self, "Выберите файл", "", "Excel Files *.xlsx")
         self.path = filename[0]
-        print(self.path)
         if self.path:
             self.createFile = SPBCreateFile(self.path, self.numberOdDays.value())
             self.createFile.show()
@@ -191,7 +189,6 @@ class fileSharing(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
             self.lineForFirst.setText(self.pathOfName)
             self.lineForFirst.setStyleSheet("font: 12pt \"Times New Roman\";")
             self.lineForFirst.setReadOnly(True)
-            print(self.path)
             return self.path
 
     def goSharing(self):
@@ -278,7 +275,6 @@ class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
             self.lineEdit.setText(self.pathOfName)
             self.lineEdit.setStyleSheet("font: 12pt \"Times New Roman\";")
             self.lineEdit.setReadOnly(True)
-            print(self.path)
             return self.path
 
     def open_dialog_box_1(self):
@@ -299,7 +295,6 @@ class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
                     count += 1
             self.lineEdit_2.setText(self.pathOfName)
             self.lineEdit_2.setStyleSheet("font: 12pt \"Times New Roman\";")
-            print(self.path1)
             return self.path1
 
     def Showing(self):
@@ -308,7 +303,6 @@ class mywindow(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
             self.waitWindow = windowWhileWork(self.path, self.path1, self.choseNumber.value())
             self.waitWindow.show()
         else:
-            print("ALL IS WORK!!! YEAH, VICTORY!!!!!!!")
             self.close()
             self.waitWindow = windowWhileWorkIfNotChecked(self.path, self.path1)
             self.waitWindow.show()
@@ -344,7 +338,6 @@ class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow)
         time.sleep(2)
 
     def goToWork(self):
-        print("AddFullNameOnPositions")
         self.thread_addFullNameOnPositions = AddFullNameOnPostions.AddName(self.path, self.path1, self.count)
         self.thread_addFullNameOnPositions.percentageChanged.connect(self.progressBar.setValue)
         self.thread_addFullNameOnPositions.indicator_of_end_work.connect(self.closeEvent)
@@ -352,13 +345,7 @@ class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow)
 
     def closeEvent(self, indicator):
         self.count = self.thread_addFullNameOnPositions.count
-        print(self.count, "count after first thread")
         if indicator is True:
-            if self.thread_addFullNameOnPositions.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 2 thread")
             self.thread_ResolveSeconds = ResolveSeconds.ResolveSeconds(self.path, self.path1, self.count)
             self.thread_ResolveSeconds.percentageChanged.connect(self.progressBar.setValue)
             self.thread_ResolveSeconds.indicator_of_end_work.connect(self.go_to_main_thread)
@@ -366,13 +353,7 @@ class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow)
 
     def go_to_main_thread(self, indicator):
         self.count = self.thread_ResolveSeconds.count
-        print(self.count, "count after second thread")
         if indicator is True:
-            if self.thread_ResolveSeconds.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 3 thread")
             self.thread_main = Main.Main(self.path, self.path1, self.count)
             self.thread_main.percentageChanged.connect(self.progressBar.setValue)
             self.thread_main.indicator_of_end_work.connect(self.go_to_addSumOfTime_thread)
@@ -380,13 +361,7 @@ class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow)
 
     def go_to_addSumOfTime_thread(self, indicator):
         self.count = self.thread_main.count
-        print(self.count, "count after third thread")
         if indicator is True:
-            if self.thread_main.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 4 thread")
             self.thread_addSumOfTime = AddSumOfTime.AddSumOfTime(self.path, self.path1, self.count)
             self.thread_addSumOfTime.percentageChanged.connect(self.progressBar.setValue)
             self.thread_addSumOfTime.indicator_of_end_work.connect(self.go_to_addTimeOfWorkUnchecked_thread)
@@ -394,13 +369,7 @@ class windowWhileWorkIfNotChecked(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow)
 
     def go_to_addTimeOfWorkUnchecked_thread(self, indicator):
         self.count = self.thread_addSumOfTime.count
-        print(self.count, "count after fourth thread")
         if indicator is True:
-            if self.thread_addSumOfTime.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 5 thread")
             self.thread_addTimeOfWorkUnchecked = AddTimeOfWorkUnchecked.AddTimeOfWork(self.path, self.path1, self.count)
             self.thread_addTimeOfWorkUnchecked.percentageChanged.connect(self.progressBar.setValue)
             self.thread_addTimeOfWorkUnchecked.indicator_of_end_work.connect(self.closeThisShit)
@@ -432,7 +401,6 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
         self.goToWork()
 
     def goToWork(self):
-        print("AddFullNameOnPositions")
         self.thread_addFullNameOnPositions = AddFullNameOnPostions.AddName(self.path, self.path1, self.count)
         self.thread_addFullNameOnPositions.percentageChanged.connect(self.progressBar.setValue)
         self.thread_addFullNameOnPositions.indicator_of_end_work.connect(self.closeEvent)
@@ -440,13 +408,7 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
     def closeEvent(self, indicator):
         self.count = self.thread_addFullNameOnPositions.count
-        print(self.count, "count after first thread")
         if indicator is True:
-            if self.thread_addFullNameOnPositions.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 2 thread")
             self.thread_ResolveSeconds = ResolveSeconds.ResolveSeconds(self.path, self.path1, self.count)
             self.thread_ResolveSeconds.percentageChanged.connect(self.progressBar.setValue)
             self.thread_ResolveSeconds.indicator_of_end_work.connect(self.go_to_main_thread)
@@ -454,13 +416,7 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
     def go_to_main_thread(self, indicator):
         self.count = self.thread_ResolveSeconds.count
-        print(self.count, "count after second thread")
         if indicator is True:
-            if self.thread_ResolveSeconds.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 3 thread")
             self.thread_main = Main.Main(self.path, self.path1, self.count)
             self.thread_main.percentageChanged.connect(self.progressBar.setValue)
             self.thread_main.indicator_of_end_work.connect(self.go_to_addSumOfTime_thread)
@@ -468,13 +424,7 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
     def go_to_addSumOfTime_thread(self, indicator):
         self.count = self.thread_main.count
-        print(self.count, "count after third thread")
         if indicator is True:
-            if self.thread_main.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 4 thread")
             self.thread_addSumOfTime = AddSumOfTime.AddSumOfTime(self.path, self.path1, self.count)
             self.thread_addSumOfTime.percentageChanged.connect(self.progressBar.setValue)
             self.thread_addSumOfTime.indicator_of_end_work.connect(self.go_to_addTimeOfWorkUnchecked_thread)
@@ -482,13 +432,7 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
     def go_to_addTimeOfWorkUnchecked_thread(self, indicator):
         self.count = self.thread_addSumOfTime.count
-        print(self.count, "count after fourth thread")
         if indicator is True:
-            if self.thread_addSumOfTime.isFinished():
-                print("fork is down!")
-            else:
-                print("fork is not down!")
-            print("start the 5 thread")
             self.thread_addTimeOfWork = AddTimeOfWork.AddTimeOfWork(self.path, self.path1, self.count, self.value)
             self.thread_addTimeOfWork.percentageChanged.connect(self.progressBar.setValue)
             self.thread_addTimeOfWork.indicator_of_end_work.connect(self.closeThisShit)
@@ -503,8 +447,6 @@ class windowWhileWork(QtWidgets.QMainWindow, MyDesign.Ui_MainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    # _choseWindow = choseWindow()
-    # _choseWindow.show()
     startMenu = startUpMenu()
     startMenu.show()
     sys.exit(app.exec_())

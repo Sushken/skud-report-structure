@@ -9,15 +9,12 @@ class AddTimeOfWork(QtCore.QThread):
 
     def __init__(self, nameOfOutFile, nameOfInFile, count):
         super().__init__()
-        print("We are on last phase!")
         self.nameOfOutFile = nameOfOutFile
         self.nameOfInFile = nameOfInFile
         self.count = count
         self.time = time
-        print(self.count, "default count value")
 
     def run(self):
-        print("Without delete")
         wbOut = openpyxl.load_workbook(filename=self.nameOfOutFile)
         sheetOut = wbOut['Лист1']
         dataOut = sheetOut.values
@@ -37,8 +34,6 @@ class AddTimeOfWork(QtCore.QThread):
         for j in range(10):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.5)
-        print(self.count, "first point")
 
         j = 0
         dataTimeOut = []
@@ -61,8 +56,6 @@ class AddTimeOfWork(QtCore.QThread):
         for j in range(10):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.5)
-        print(self.count, "second point")
 
         sheetOut.insert_rows(1, 1)
         sheetOut.cell(row=1, column=1).value = "Компания"

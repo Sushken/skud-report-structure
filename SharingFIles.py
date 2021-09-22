@@ -14,7 +14,6 @@ class CreateFiles:
         super().__init__()
         self.company = company
         self.nameOfFiles = fileName
-        print("Start this prog!")
         self.db = "БД.xlsx"
         self.oldDataDepartments, self.oldDataPath = self.openFile(self.db)
         self.dataDepartments = []
@@ -41,7 +40,6 @@ class CreateFiles:
         dataDepartment = []
         dataPath = []
         row = 3
-        # select_company = input()
         if self.company == "ГК Новотранс":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 0))
@@ -131,7 +129,6 @@ class WorkWithFile(QtCore.QThread):
         self.workFile = path
         self.company = company
         self.nameOfFiles = nameOfFiles
-        print("Start work with files!")
         self.header = [
             'Компания',
             'Отдел',
@@ -145,7 +142,6 @@ class WorkWithFile(QtCore.QThread):
             'Продолжительность рабочего дня',
             'Обеденный перерыв',
         ]
-        # self.run()
 
     def run(self):
         self.fileCreator = CreateFiles(self.company, self.nameOfFiles)
@@ -154,13 +150,10 @@ class WorkWithFile(QtCore.QThread):
 
     def work(self):
         data, countRows = self.readFile(self.workFile)
-        print("DATA = ", data)
         start = datetime.now()
         new_data = []
         for i in range(0, len(data) - 10, 11):
             new_data.append(data[i:i+11])
-        print(new_data)
-        print(self.fileCreator.dataPath[0] + self.fileCreator.nameOfFilesXlsx)
 
         for dbCount in range(len(self.fileCreator.dataDepartments)):
             i = 0
@@ -194,7 +187,6 @@ class WorkWithFile(QtCore.QThread):
                 worksheet.write_string(row=1, col=0, string="Проходы сторудников подразделения отсутствуют.", cell_format=format1)
             workbook.close()
         end = datetime.now()
-        print("work time = ", end-start)
 
         indicator = True
         self.indicator_of_end_work.emit(indicator)

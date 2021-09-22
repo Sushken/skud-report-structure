@@ -14,10 +14,8 @@ class AddTimeOfWork(QtCore.QThread):
         self.count = count
         self.time = time
         self.value = value
-        print(self.count, "default count value")
 
     def run(self):
-        print("vpcp[[apsp[s[asdk[asdl[a")
         wbOut = openpyxl.load_workbook(filename=self.nameOfOutFile)
         sheetOut = wbOut['Лист1']
         dataOut = sheetOut.values
@@ -37,8 +35,6 @@ class AddTimeOfWork(QtCore.QThread):
         for j in range (5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.2)
-        print(self.count, "first point")
 
         j = 0
         dataTimeOut = []
@@ -51,8 +47,6 @@ class AddTimeOfWork(QtCore.QThread):
         for j in range (5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.2)
-        print(self.count, "second point")
 
         i = 0
         while i < len(dataNameOut):
@@ -67,8 +61,6 @@ class AddTimeOfWork(QtCore.QThread):
         for j in range (5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.2)
-        print(self.count, "third point")
 
         sheetOut.insert_rows(1, 1)
         sheetOut.cell(row=1, column=1).value = "Компания"
@@ -101,7 +93,5 @@ class AddTimeOfWork(QtCore.QThread):
         for j in range (5):
             self.count += 1
             self.percentageChanged.emit(self.count)
-            # self.time.sleep(0.2)
-        print(self.count, "fourth point")
         self.indicator = True
         self.indicator_of_end_work.emit(self.indicator)
