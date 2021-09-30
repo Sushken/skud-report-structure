@@ -8,7 +8,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from ReadHtml import MainWindow as mw
 
 
 class Ui_MainWindow(object):
@@ -55,12 +54,10 @@ class Ui_MainWindow(object):
         widget = QtWidgets.QWidget()
 
         self.moodleButton = QtWidgets.QPushButton(startMenu)
-        # self.moodleButton.setGeometry(QtCore.QRect(20, 60, 361, 51))
         self.moodleButton.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.moodleButton.setStyleSheet(self.styleForPushButtons)
 
         self.skudButton = QtWidgets.QPushButton(startMenu)
-        # self.skudButton.setGeometry(QtCore.QRect(20, 140, 361, 51))
         self.skudButton.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.skudButton.setStyleSheet(self.styleForPushButtons)
 
