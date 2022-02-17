@@ -69,7 +69,7 @@ class Ui_MainWindow(object):
 
     def setupMoodleReport(self, moodleReport):
         moodleReport.setObjectName("moodleReport")
-        moodleReport.resize(400, 500)
+        moodleReport.resize(400, 550)
         moodleReport.setStyleSheet(self.styleForWindows)
 
         self.HcButton = QtWidgets.QPushButton(moodleReport)
@@ -92,8 +92,17 @@ class Ui_MainWindow(object):
         self.BvrpButton.setGeometry(QtCore.QRect(20, 340, 361, 51))
         self.BvrpButton.setStyleSheet(self.styleForPushButtons)
 
+        self.labelReportPath = QtWidgets.QLabel(moodleReport)
+        self.labelReportPath.setGeometry(QtCore.QRect(20, 410, 361, 81))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        self.labelReportPath.setFont(font)
+        self.labelReportPath.setAlignment(QtCore.Qt.AlignCenter)
+        self.labelReportPath.setObjectName("labelReportPath")
+
         self.label_nv = QtWidgets.QLabel(moodleReport)
-        self.label_nv.setGeometry(QtCore.QRect(20, 410, 361, 81))
+        self.label_nv.setGeometry(QtCore.QRect(20, 470, 361, 81))
         self.label_nv.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignCenter)
         self.label_nv.setObjectName("label_nv")
 
@@ -126,8 +135,8 @@ class Ui_MainWindow(object):
         self.labelForSecond.setObjectName("labelForSecond")
         self.comboForSecond = QtWidgets.QComboBox(sharingWindow)
         self.comboForSecond.setGeometry(QtCore.QRect(50, 130, 201, 31))
-        self.comboForSecond.addItems(["ГК Новотранс", "Новотранс Актив", "РК Новотранс", "ХК Новотранс", "Арго", "УК Новотранс",
-                                      "Питер (НВТА)", "Питер (БТП)", "Питер (КУЛ)", "Питер (СК)", "Питер (БВРЗ)", "Питер (УК)", "Питер (Строй)"])
+        self.comboForSecond.addItems(["ГК Новотранс", "Новотранс Актив", "РК Новотранс", "ХК Новотранс", "Арго", "УК Новотранс", "ПИИР",
+                                      "Питер (НВТА)", "Питер (БТП)", "Питер (КУЛ)", "Питер (СК)", "Питер (БВРЗ)", "Питер (УК)", "Питер (Строй)", "Питер (ПУЛ)", "Питер (ПИИР)"])
         self.comboForSecond.setStyleSheet("border: 1px solid black;")
 
         # Third point
@@ -395,4 +404,5 @@ class Ui_MainWindow(object):
         self.KvrpButton.setText(_translate("moodleReport", "Отчет КВРП"))
         self.VrpButton.setText(_translate("moodleReport", "Отчет ВРП"))
         self.BvrpButton.setText(_translate("moodleReport", "Отчет БВРП"))
+        self.labelReportPath.setText(_translate("moodleReport", "N:\УК\УКБ\Курсы Moodle\Отчеты\ \n Временная папка для программы\\"))
         self.label_nv.setPixmap(QtGui.QPixmap("img.png"))

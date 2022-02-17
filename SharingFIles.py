@@ -76,6 +76,18 @@ class CreateFiles:
                 dataPath.append(worksheet.cell_value(row, 11))
                 row += 1
             return dataDepartment, dataPath
+        elif self.company == "ПИИР":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 28))
+                dataPath.append(worksheet.cell_value(row, 29))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (ПИИР)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 30))
+                dataPath.append(worksheet.cell_value(row, 31))
+                row += 1
+            return dataDepartment, dataPath
         elif self.company == "Питер (НВТА)":
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 12))
@@ -116,6 +128,12 @@ class CreateFiles:
             while row != worksheet.nrows:
                 dataDepartment.append(worksheet.cell_value(row, 24))
                 dataPath.append(worksheet.cell_value(row, 25))
+                row += 1
+            return dataDepartment, dataPath
+        elif self.company == "Питер (ПУЛ)":
+            while row != worksheet.nrows:
+                dataDepartment.append(worksheet.cell_value(row, 26))
+                dataPath.append(worksheet.cell_value(row, 27))
                 row += 1
             return dataDepartment, dataPath
 

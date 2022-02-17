@@ -37,7 +37,7 @@ def pass_test(company):
 
                     FROM grade_grades AS gg 
                     JOIN grade_items AS gi ON gg.itemid = gi.id
-                    JOIN user AS user2 ON gg.usermodified = user2.id
+                    JOIN user AS user2 ON (gg.userid = user2.id AND (gg.userid=gg.usermodified OR gg.userid!=gg.usermodified))
                     JOIN course AS course ON gi.courseid = course.id 
     """
     cur = context.cursor()
